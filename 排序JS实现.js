@@ -1,6 +1,8 @@
 
 let arr = [45, 2, 6, 1, 98, 336, 59];
 
+
+
 // 基数排序
 let sort = arr => {
 	let tArr = {};
