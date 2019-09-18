@@ -1,4 +1,6 @@
-
+/**
+ * 各种排序，原理参考第三章：数据结构中排序相关内容
+ */
 let arr = [45, 2, 6, 1, 98, 336, 59];
 
 
@@ -43,3 +45,31 @@ let sort = arr => {
 }
 
 
+// 插入排序
+let insert = arr => {
+	let index = 1;
+	// 默认取第一个元素放到有序数组newArr
+	let newArr = [ arr[0] ];
+	// 从第二个元素开始，从后往前与有序数组的每个元素比较，大则放后面，小则继续与前一个元素比较知道全部比较完成
+	let insertToArr = (element, arr, index) => {
+		if(index < 0){
+			newArr.unshift(element);
+			return;
+		}
+		if(element >= arr[index]){
+			newArr.splice(index + 1, 0, element);
+		}else{
+			index--;
+			insertToArr(element, arr, index);
+		}
+	}
+
+	while(index < arr.length){
+		insertToArr(arr[index], newArr, newArr.length - 1);
+		index++;
+	}
+	return newArr;
+}
+
+
+// 希尔排序
